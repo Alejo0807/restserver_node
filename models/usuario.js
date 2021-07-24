@@ -15,12 +15,16 @@ const UsuarioSchema = Schema({
         type: String,
         required: [true, 'La constraseña es obligatoria']
     },
+    img: {
+        type: String
+    },
     uid: {
         type: String
     },
     rol: {
         type: String,
-        required: true
+        required: true,
+        default: 'USER_ROL'
     },
     estado: {
         type: Boolean,
