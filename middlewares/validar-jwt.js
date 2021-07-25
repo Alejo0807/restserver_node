@@ -14,9 +14,7 @@ const validarJWT = async(req, res = response, next) => {
     
 
     try {
-        
         const { uid } = jwt.verify(token, process.env.SECRETTOPRIVATEKEY);
-        
         const usuario = await Usuario.findById(uid);
 
         if (!usuario) {
@@ -24,7 +22,6 @@ const validarJWT = async(req, res = response, next) => {
                 msg: 'Token no válido - usuario no existe en DB'
             });
         }
-
 
         // Verificar si el usuario no ha sido eliminado
         if (!usuario.estado) {
